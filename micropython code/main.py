@@ -1,7 +1,7 @@
 from machine import Pin, SoftI2C
 from time import sleep
 import mhz19b
-import ssd1306_new
+import ssd1306
 import consolaB
 import writer
 
@@ -10,7 +10,7 @@ mhz_sensor = mhz19b.MHZ19BSensor(rx_sensor=17, tx_sensor=16) # connect RX and TX
 i2c = SoftI2C(scl=Pin(22), sda=Pin(21))
 display_width = 128
 display_height = 64
-display = ssd1306_new.SSD1306_I2C(display_width, display_height, i2c)
+display = ssd1306.SSD1306_I2C(display_width, display_height, i2c)
 display.contrast(100)
 font_writer = writer.Writer(display, consolaB)
 
